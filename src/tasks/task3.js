@@ -14,6 +14,14 @@ export function renderLadder(height) {
     throw new Error("Некорректные входные данные");
   }
 
+  if (!Number.isFinite(h)) {
+    throw new Error("Некорректные входные данные");
+  }
+
+  if (!Number.isInteger(h)) {
+    throw new Error("Некорректные входные данные");
+  }
+
   if (h === 0) {
     return "";
   }
@@ -23,6 +31,16 @@ export function renderLadder(height) {
   }
 
   let result = "";
+
+  for (let i = 1; i <= h; i++) {
+    for (let j = 1; j <= i; j++) {
+      result += j;
+    }
+
+    if (i < h) {
+      result += "\n";
+    }
+  }
 
   return result;
 }

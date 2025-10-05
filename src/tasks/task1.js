@@ -17,13 +17,13 @@ export function processWord(word, ignoredCharacted) {
     throw new Error("Слово содержит небуквенные символы");
   }
 
-  if (!word.includes(ignoredCharacted)) {
-    return word;
-  }
-
   let result = "";
 
-  // TODO
+  for (let i = 0; i < word.length; i++) {
+    if (word[i].toLowerCase() !== ignoredCharacted.toLowerCase()) {
+      result += word[i];
+    }
+  }
 
   return result;
 }
